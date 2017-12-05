@@ -1,5 +1,6 @@
 <template>
   <li>
+      
       <!--图片或说明  -->
       <slot></slot>    
   </li>

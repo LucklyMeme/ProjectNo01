@@ -1,8 +1,7 @@
 <template>
     <div>
         <mt-header title="阿里精英团队"></mt-header>
-        <router-view></router-view>
-
+        <router-view class="tmpl"></router-view>
         <mt-tabbar v-model="selected">
             <mt-tab-item id="home">
                 <img slot="icon" src="../static/img/index.png">
@@ -42,7 +41,10 @@ export default {
 };
 </script>
 <style scoped>
-
+.mint-tabbar{
+    position: fixed;
+    bottom:0;
+}
 </style>
 
 
