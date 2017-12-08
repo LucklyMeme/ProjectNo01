@@ -1,28 +1,24 @@
 <template>
   <li>
-      
-      <!--图片或说明  -->
-      <slot></slot>    
+      <!-- 任意的li -->
+     <slot></slot>
   </li>
 </template>
 <script>
 export default {
-    name:'my-li',
-    data() {
-        return {
-
-        }
-    }
+  name: "my-li",
+  data() {
+    return {};
+  }
 };
 </script>
 <style scoped>
-    li {
-    float: left;
-    height: 20%;
-    line-height: 218px;
-    width: 33%;
-    margin: 1 1 0 0;
-    text-align: center;
-    position: relative;
-    }
+li {
+  width: 32.8%;
+  height: 20%;
+  float: left;
+  margin: 1px;
+}
 </style>
+
+

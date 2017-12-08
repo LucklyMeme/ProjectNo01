@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot --open --port 22345",
+    "dev": "webpack-dev-server --inline --hot --open --port 22245",
     "build": "webpack"
   },
   "keywords": [],

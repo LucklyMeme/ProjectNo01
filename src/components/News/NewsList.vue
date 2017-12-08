@@ -1,17 +1,18 @@
 <template>
-    <div class="tmpl">
-        <!-- 使用 nab-bar -->
-    <nav-bar title="新闻列表"></nav-bar>
-    <div class="demo">
-      <ul >
+  <div class="tmpl">
+      <!-- 使用nav-bar组件 -->
+     <nav-bar title="新闻列表"></nav-bar>
+
+         <div class="demo">
+      <ul>
             <li v-for="news in newsList" :key="news.id">
                 <router-link :to="{name:'news.detail',query:{newsId:news.id}}">
                     <img class="" :src="news.img_url">
                     <div >
-                        <span>{{news.title|convert-title(13)}}</span>
+                        <span>{{news.title|convertTitle(14)}}</span>
                         <div class="news-desc">
                             <p>点击数:{{news.click}}</p>
-                            <p>发表时间:{{news.add_time|convert-time}}</p>
+                            <p>发表时间:{{news.add_time|convertTime}}</p>
                         </div>
                     </div>
                 </router-link>
@@ -19,30 +20,28 @@
             <li class="line"></li>
         </ul>
     </div>
-
-    </div>
+  </div>
 </template>
 <script>
-    export default {    
-        created(){
-            this.$axios.get('getnewslist')
-            .then(res=>{
-                this.newsList=res.data.message;
-                console.log(this.data);
-            })
-            .catch(err=>{
-                console.log('新闻列表异常',err);
-            })
-        },
-        data(){
-            return {
-                newsList:[],//新闻列表数据
-            }
-        },
-        methods:{
+export default {
+    created(){
+        this.$axios.get('getnewslist')
+        .then(res=>{
+            this.newsList = res.data.message;
+        })
+        .catch(err=>{
+            console.log('新闻列表异常',err);
+        })
+    },
+  data() {
+    return {
+        newsList:[]  //新闻列表数据
+    };
+  },
+  methods:{
 
-        }
-    }
+  }
+};
 </script>
 <style scoped>
 .demo a {
@@ -68,6 +67,8 @@
     width: 100%;
     font-size: 17px;
     line-height: 21px;
+/*    white-space: nowrap;
+    overflow: hidden;*/
 }
 .demo a p {
     float: left;
@@ -79,15 +80,13 @@
     float: right;
 }
 
-
-.page-title{
-    margin-left: 25%;
-}
 .line {
     margin-left: 16px;
     transform: scaleY(.5);
     border-bottom: 1px solid #c8c7cc;
 }
-
-
 </style>
+
+
+
+

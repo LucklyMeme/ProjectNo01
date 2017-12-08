@@ -1,22 +1,27 @@
 <template>
   <ul>
-      <!--任意的li  -->
-      <slot></slot>    
+      <!-- 图片分享 九宫格 -->
+      <slot></slot>
   </ul>
 </template>
 <script>
 export default {
-    name:'my-ul',
+  name:'my-ul',
   data(){
-      return {
+      return{
 
       }
   }
-
 }
 </script>
 <style scoped>
-    ul {
-    overflow: hidden;
-    }
+ul {
+  width: 100%;
+ 
+  /* height: 100%; */
+  overflow:hidden;
+}
+
 </style>
+
+
