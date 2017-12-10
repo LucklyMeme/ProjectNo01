@@ -2,7 +2,9 @@
   <div>
       <!-- 头部 -->
       <mt-header  ref="header" title="圆梦新天地，自信,改变自己,相信自己一定能行"></mt-header>   
+       <transition name:"rv" mode="out-in">
        <router-view  :appRefs="$refs" class="tmpl"></router-view>
+      </transition>
       <mt-tabbar v-model="selected" ref="footer">
         <mt-tab-item id="home">
             <img slot="icon" src="../static/img/index.png">
@@ -42,6 +44,12 @@ export default {
 };
 </script>
 <style scoped>
+.rv-enter-active, .rv-leave-active{
+transition:opacity 1s;
+}
+.rv-enter, .rv-leave-to{
+  opacity:0;
+}
 .mint-tabbar{
   position:fixed;
   bottom:0;

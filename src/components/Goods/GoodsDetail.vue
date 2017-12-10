@@ -17,12 +17,14 @@
                 <li class="number-li">购买数量：<span>-</span><span>1</span><span>+</span></li>
                 <li>
                     <mt-button type="primary">立即购买</mt-button>
-                    <mt-button type="danger">加入购物车</mt-button>
+                    <mt-button type="danger" @click="addShopcart">加入购物车</mt-button>
                 </li>
             </ul>
         </div>
-       
-            <div class="ball"></div>
+       <!-- 过渡组件被内置组件transition包裹，v是指name属性 -->
+       <transition name="myball" v-on:after-enter="afterEnter">
+            <div class="ball" v-if="showBall"></div>
+        </transition>
         <div class="product-props">
             <ul>
                 <li>商品参数</li>
@@ -48,8 +50,19 @@ export default {
   data() {
     return {
       goodsInfo: {}, //商品详情
-      swipeUrl: "" //轮播图 url
+      swipeUrl: "" ,//轮播图 url
+      showBall:false,//小球插入是否存在
     };
+  },
+  methods:{
+    addShopcart(){
+      this.showBall =true;//插入小球，触发v-enter 动画
+    },
+    afterEnter(){
+      //元素进入后，动画传递将小球，移出
+      this.showBall=false;
+    }
+
   },
   // created() {
   //   //获取路由传递的参数
@@ -79,6 +92,10 @@ export default {
 };
 </script>
 <style scoped>
+/* 进入中的动画 */
+.myball-enter-active{
+  animation:bounce-in 1s;
+}
 .ball-enter-active {
   animation: bounce-in 1s;
 }
