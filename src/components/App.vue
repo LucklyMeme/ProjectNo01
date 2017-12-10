@@ -1,7 +1,7 @@
 <template>
   <div>
       <!-- 头部 -->
-      <mt-header  ref="header" title="圆梦新天地，自信,改变自己,相信自己一定能行"></mt-header>   
+      <mt-header  ref="header" title="圆梦新天地，改变自己,相信自己一定能行"></mt-header>   
        <transition name:"rv" mode="out-in">
        <router-view  :appRefs="$refs" class="tmpl"></router-view>
       </transition>
