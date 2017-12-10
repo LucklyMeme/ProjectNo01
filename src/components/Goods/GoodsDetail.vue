@@ -92,6 +92,14 @@ export default {
 };
 </script>
 <style scoped>
+/* 设置进入后透明度 0 设置 0 就一直看不见*/
+/* .myball-enter-to{
+  opacity:0;
+} */
+
+.myball-leave{
+  opacity:0;
+}
 /* 进入中的动画 */
 .myball-enter-active{
   animation:bounce-in 1s;
