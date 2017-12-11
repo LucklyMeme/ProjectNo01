@@ -14,7 +14,8 @@
                 </span></li>
                 <li class="price-li">市场价：
                     <s>￥{{goodsInfo.market_price}}</s> 销售价：<span>￥{{goodsInfo.sell_price}}</span></li>
-                <li class="number-li">购买数量：<span>-</span><span>1</span><span>+</span></li>
+                <li class="number-li">购买数量：<span @click="substract">-</span>
+                <span>1</span><span @click="add">+</span></li>
                 <li>
                     <mt-button type="primary">立即购买</mt-button>
                     <mt-button type="danger" @click="addShopcart">加入购物车</mt-button>
@@ -46,22 +47,43 @@
     </div>
 </template>
 <script>
+import GoodsTools  from '../Commons/GoodsTools.js';
 export default {
   data() {
     return {
       goodsInfo: {}, //商品详情
       swipeUrl: "" ,//轮播图 url
       showBall:false,//小球插入是否存在
+      picNum:1,
     };
   },
   methods:{
+    //添加购物车
     addShopcart(){
       this.showBall =true;//插入小球，触发v-enter 动画
-    },
+      GoodsTools.addOrUpdate({
+        id:this.goodsInfo.id,num:this.picNum
+      })
+      //  GoodsTools.addOrUpdate({
+      //    id:88,num:56
+      //  });
+      //  GoodsTools.addOrUpdate({
+      //   id:88,num:56 
+      //  })
+      //  console.log(GoodsTools.getGoods());
+      //  console.log(GoodsTools.getToalCount());
+
+   },
     afterEnter(){
       //元素进入后，动画传递将小球，移出
       this.showBall=false;
-    }
+    },
+    substract(){
+      this.picNum--;
+    },
+  add(){
+    this.picNum++;
+  }
 
   },
   // created() {
@@ -91,6 +113,7 @@ export default {
     }
 };
 </script>
+
 <style scoped>
 /* 设置进入后透明度 0 设置 0 就一直看不见*/
 /* .myball-enter-to{

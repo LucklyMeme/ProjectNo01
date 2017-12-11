@@ -45,7 +45,7 @@ export default {
 </script>
 <style scoped>
 .rv-enter-active, .rv-leave-active{
-transition:opacity 1s;
+transition:opacity 0.5s;
 }
 .rv-enter, .rv-leave-to{
   opacity:0;

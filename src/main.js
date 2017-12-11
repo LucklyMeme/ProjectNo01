@@ -103,6 +103,19 @@ Vue.prototype.$axios = Axios;
 // 设置默认URL 请求 基础路径(项目文档提供接口)
 Axios.defaults.baseURL = 'http://vue.studyit.io/api/';
 // Axios.defaults.baseURL = '192.168.159.80:8899/api/';
+//拦截器中，设置loadding图标
+Axios.interceptors.request.use((config)=>{
+    MintUi.Indicator.open({
+    text:'玩命加载中..' ,
+    spinnerType:'triple-bounce'  
+    })
+    return config;
+})
+Axios.interceptors.response.use(response=>{
+    MintUi.Indicator.close();
+    return response;
+})
+
 // Axios 结束
 
 // 启动
